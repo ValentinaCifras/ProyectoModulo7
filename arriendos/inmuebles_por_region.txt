@@ -1,0 +1,6 @@
+ Propiedad: Departamento 2 La Serena
+ Descripcion: Departamento 2 habitaciones, 1 baño, con piscina quincho y gimnasio.
+ Comuna: Coquimbo
+ Propiedad: Departamento La Serena
+ Descripcion: Departamento de 70 m² , con 3 habitaciones y 2 baños.
+ Comuna: Coquimbo

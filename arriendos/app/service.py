@@ -48,3 +48,46 @@ def borrar_inmueble(id_inmueble):
     inmueble = Inmueble.objects.get(id=id_inmueble)
     inmueble.delete()
     return obtener_inmuebles()
+
+
+def obtener_inmuebles_por_comuna(comuna):
+    select = f"""
+            SELECT app_inmueble.id, app_inmueble.nombre_inmueble, app_inmueble.descripcion, app_comuna.nombre_comuna 
+            FROM app_inmueble 
+            INNER JOIN app_comuna 
+            ON app_inmueble.id_comuna_id = app_comuna.id 
+            WHERE app_comuna.nombre_comuna like'{comuna}';
+            """
+    query = Inmueble.objects.raw(select)
+    archivo1=open("inmuebles_por_comuna.txt","a",encoding='utf-8')
+    for i in query:
+       archivo1.write(f" Propiedad: {i.nombre_inmueble}")
+       archivo1.write("\n")
+       archivo1.write(f" Descripcion: {i.descripcion}")
+       archivo1.write("\n")
+       archivo1.write(f" Comuna: {i.nombre_comuna}" )
+       archivo1.write("\n")
+    archivo1.close()
+
+def obtener_inmuebles_por_region(region):
+    select = f"""
+            SELECT app_inmueble.id,app_inmueble.nombre_inmueble, app_inmueble.descripcion, app_region.nombre_region 
+            FROM app_inmueble 
+            INNER JOIN app_region 
+            ON app_inmueble.id_region_id = app_region.id 
+            WHERE app_region.nombre_region like'{region}';
+            """
+    query = Inmueble.objects.raw(select)
+    archivo1=open("inmuebles_por_region.txt","a",encoding='utf-8')
+    for i in query:
+       archivo1.write(f" Propiedad: {i.nombre_inmueble}")
+       archivo1.write("\n")
+       archivo1.write(f" Descripcion: {i.descripcion}")
+       archivo1.write("\n")
+       archivo1.write(f" Comuna: {i.nombre_region}" )
+       archivo1.write("\n")
+    archivo1.close()
+
+
+
+

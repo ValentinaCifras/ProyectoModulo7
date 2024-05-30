@@ -1,0 +1,50 @@
+[
+    {
+        "model": "app.Inmueble",
+        "pk": 1,
+        "fields": {
+            "id": 1,
+            "id_usuario":1,
+            "id_tipo_inmueble":1,
+            "id_comuna":30,
+            "id_region":5,
+            "nombre_inmueble":"Departamento La Serena", 
+            "m2_construido":70, 
+            "numero_banos":2, 
+            "numero_hab":3, 
+            "direccion":"Av. 4 Esquinas 1234" 
+        }
+    },
+    {
+        "model": "app.Inmueble",
+        "pk": 2,
+        "fields": {
+            "id": 2,
+            "id_usuario":2,
+            "id_tipo_inmueble":3,
+            "id_comuna":252,
+            "id_region":13,
+            "nombre_inmueble":"Parcela Puerto Varas", 
+            "m2_construido":100, 
+            "numero_banos":3, 
+            "numero_hab":4, 
+            "direccion":"Manzanal 123" 
+        }
+    },
+    {
+        "model": "app.Inmueble",
+        "pk": 3,
+        "fields": {
+            "id": 3,
+            "id_usuario":3,
+            "id_tipo_inmueble":2,
+            "id_comuna":306,
+            "id_region":16,
+            "nombre_inmueble":"Casa La Reina", 
+            "m2_construido":80, 
+            "numero_banos":2, 
+            "numero_hab":3, 
+            "direccion":"Av. Principe de Gales 123" 
+        }
+    }
+]

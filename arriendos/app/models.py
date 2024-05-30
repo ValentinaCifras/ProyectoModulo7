@@ -13,6 +13,7 @@ class Inmueble(models.Model):
     id_comuna = models.ForeignKey('Comuna', on_delete=models.CASCADE)
     id_region = models.ForeignKey('Region', on_delete=models.CASCADE)
     nombre_inmueble = models.CharField(max_length=100, null=False, blank=False)
+    descripcion = models.TextField(max_length=200, null=False, blank=False, default='Sin Desccripcion')
     m2_construido = models.FloatField()
     numero_banos = models.PositiveIntegerField(default=0)
     numero_hab = models.PositiveIntegerField(default=0)
@@ -83,3 +84,5 @@ class Perfil(models.Model):
     
     def __str__(self):
         return self.usuario.username
+
+
