@@ -1,0 +1,78 @@
+body {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #3082d4;
+}
+
+
+
+
+footer {
+    background-color: #f8f9fa; /* Ejemplo de color de fondo para el footer */
+    padding: 20px 0;
+    font-family: "Roboto Mono", monospace;
+    font-weight: 100;
+    font-style: normal;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
+  
+.pie-de-pagina a {
+    margin: 0 10px;
+    color: rgb(159, 130, 255);
+    font-size: 25px;
+    
+  }
+  
+.creadopor {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+
+#ingresar {
+    width: 400px;
+    background-color: #beecd5;
+    border-radius: 10px;
+    margin-top: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 3px solid rgb(28, 94, 72);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#registrar{
+    width: 600px;
+    background-color: #beecd5;
+    border-radius: 10px;
+    margin-top: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 3px solid rgb(28, 94, 72);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#crear_perfil{
+    width: 600px;
+    background-color: #beecd5;
+    border-radius: 10px;
+    margin-top: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 3px solid rgb(28, 94, 72);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
+}

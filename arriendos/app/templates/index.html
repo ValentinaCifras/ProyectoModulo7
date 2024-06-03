@@ -1,16 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    {% for i in inmuebles %}
-    {{ i.nombre_inmueble}}
-    {{ i.id_region.region}}
-    {{ i.id_comuna.comuna}}
+{% extends 'base.html' %}
+{% block content %}
+
+
+{% if user.is_authenticated %} 
+      {% for i in inmuebles %}
+      <ul>
+        <li>{{i.nombre_inmueble}}</li>
+        <li>{{i.id_region.region}}</li>
+        <li>{{i.id_comuna.comuna}}</li>
+      </ul>
+        
+      {% endfor %}
+        <a href="{% url 'logout' %}"">Logout</a>
+      
     
-    {%endfor%}    
-</body>
-</html>
+    {% else %}
+    
+    <h1 class="text-center pt-4">Inicia sesion para acceder a nuestro contenido</h1>
+    <div class="text-center p-4">
+    
+      <a href="{% url 'login' %}" class="btn btn-success py-2">Ingresa Aqui!</a>
+      
+    </div>      
+{% endif %}
+{% endblock content %}
+
+
+
+
