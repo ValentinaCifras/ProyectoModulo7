@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+
+<div class="container p-4">
+<h1 class="text-center fw-bold" >Propiedades Disponibles</h1>
+</div>
+
+<div class="container p-4 mb-2 text-center">
+    <form method="get" action="{% url 'disponibles'%}">
+        <select name="nombre_region">
+          <option value="">Regiones</option>
+          {% for r in regiones%}
+            <option value="{{r.id}}">{{r.nombre_region}}</option>
+          {%endfor%}
+        </select>
+        <select name="nombre_comuna">
+          <option value="">Comunas</option>
+          {% for c in comunas%}
+            <option value="{{c.id}}">{{c.nombre_comuna}}</option>
+          {%endfor%}
+        </select>
+        <button type="submit" id="boton-ingresa">Buscar</button>
+      </form> 
+</div>
+
+        
+<div class="container">
+  <div class="row">
+    {% for inmueble in inmuebles %}
+      <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
+        <div class="card">
+          <img src="{{ inmueble.imagen }}" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">{{ inmueble.nombre_inmueble }}</h5>
+              <ul>
+                <li class="card-text text-start">M² construidos:{{ inmueble.m2_construido }}</li>
+                <li class="card-text text-start">Baños: {{ inmueble.numero_banos }}</li>
+                <li class="card-text text-start">Habitaciones:{{ inmueble.numero_hab }}</li>
+              </ul>  
+              <a id="boton-ingresa" href="{% url 'contact' inmueble.pk %}">Contactar al propietario</a> 
+          </div>
+        </div>
+      </div>
+    {% endfor %}    
+  </div>
+</div>
+
+
+{% endblock content %}

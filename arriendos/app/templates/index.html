@@ -1,30 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<section id="img">
+  <div class="text-center" >
+      <h1 class=" texto1 fw-bold ">Encuentra tu hogar perfecto
+      </h1>
+  </div>    
 
-{% if user.is_authenticated %} 
-      {% for i in inmuebles %}
-      <ul>
-        <li>{{i.nombre_inmueble}}</li>
-        <li>{{i.id_region.region}}</li>
-        <li>{{i.id_comuna.comuna}}</li>
-      </ul>
-        
-      {% endfor %}
-        <a href="{% url 'logout' %}"">Logout</a>
-      
+  <div class="text-center p-4" ">
+    <a href="{% url 'login' %}" id="boton-ingresa" class="py-2">Ingresa Aqui!</a>
+  </div>   
+
+</section>
     
-    {% else %}
-    
-    <h1 class="text-center pt-4">Inicia sesion para acceder a nuestro contenido</h1>
-    <div class="text-center p-4">
-    
-      <a href="{% url 'login' %}" class="btn btn-success py-2">Ingresa Aqui!</a>
-      
-    </div>      
-{% endif %}
 {% endblock content %}
-
-
-
-

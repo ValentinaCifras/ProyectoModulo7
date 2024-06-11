@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container"> 
+<h1>Mensajes recibidos</h1>
+{% for m in messages %}
+ 
+  <div class="row m-3" style="background-color: rgb(199, 203, 203);">
+  
+      <p> - Inmueble: {{ m.nombre_inmueble }}</p>
+      <p> - Correo: {{ m.correo }}</p>
+      <p> - Nombre remitente: {{ m.nombre }}</p>
+      <p> - Mensaje: {{ m.mensaje }}</p>
+  </div>
+  {% endfor %}
+</div>
+
+
+
+{% endblock content %}

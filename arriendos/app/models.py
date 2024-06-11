@@ -12,8 +12,9 @@ class Inmueble(models.Model):
     id_tipo_inmueble = models.ForeignKey('Tipo_inmueble', on_delete=models.CASCADE)
     id_comuna = models.ForeignKey('Comuna', on_delete=models.CASCADE)
     id_region = models.ForeignKey('Region', on_delete=models.CASCADE)
+    imagen = models.URLField(default='Ingresar url')
     nombre_inmueble = models.CharField(max_length=100, null=False, blank=False)
-    descripcion = models.TextField(max_length=200, null=False, blank=False, default='Sin Desccripcion')
+    descripcion = models.TextField(max_length=200, null=False, blank=False, default='Sin Descripcion')
     m2_construido = models.FloatField()
     numero_banos = models.PositiveIntegerField(default=0)
     numero_hab = models.PositiveIntegerField(default=0)
@@ -84,5 +85,15 @@ class Perfil(models.Model):
     
     def __str__(self):
         return self.usuario.username
+    
+class Contact(models.Model):
+    arrendador = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    nombre_inmueble = models.CharField()
+    correo = models.EmailField()
+    nombre = models.CharField(max_length=64)
+    mensaje = models.TextField()
+
+    def __str__(self):
+        return f"{self.correo} - Mensaje: {self.mensaje}"
 
 

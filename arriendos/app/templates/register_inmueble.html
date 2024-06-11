@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container text-center py-3" id="crear_perfil">
+    <div class="col">
+        <h1 class="py-3"> {{title}} </h1>
+        <form  method="POST">
+            {% csrf_token %}
+            {{ form.errors}}
+            <div class="mb-3 text-center">
+                <label for="{{form.id_tipo_inmueble.id_for_label}}" class="form-label">
+                    {{form.id_tipo_inmueble.label_tag}}
+                </label>
+                <div>
+                    {{form.id_tipo_inmueble}}
+                </div>
+                <div class="text-danger">
+                    {{form.id_tipo_inmueble.errors}}
+                </div>
+            </div>
+
+            <div class="mb-3 text-center">
+                <label for="{{form.id_comuna.id_for_label}}" class="form-label">
+                    {{form.id_comuna.label_tag}}
+                </label>
+                <div>
+                    {{form.id_comuna}}
+                </div>
+                <div class="text-danger">
+                    {{form.id_comuna.errors}}
+                </div>
+            </div>
+
+            <div class="mb-3 text-center">
+                <label for="{{form.id_region.id_for_label}}" class="form-label">
+                    {{form.id_region.label_tag}}
+                </label>
+                <div>
+                    {{form.id_region}}
+                </div>
+                <div class="text-danger">
+                    {{form.id_region.errors}}
+                </div>
+            </div>
+
+            
+
+            <div class="mb-3 text-center">
+                <label for="{{form.imagen.id_for_label}}" class="form-label">
+                    {{form.imagen.label_tag}}
+                </label>
+                <div>
+                    {{form.imagen}}
+                </div>
+                <div class="text-danger">
+                    {{form.imagen.errors}}
+                </div>
+            </div>
+
+            <div class="mb-3 text-center">
+                <label for="{{form.nombre_inmueble.id_for_label}}" class="form-label">
+                    {{form.nombre_inmueble.label_tag}}
+                </label>
+                <div>
+                    {{form.nombre_inmueble}}
+                </div>
+                <div class="text-danger">
+                    {{form.nombre_inmueble.errors}}
+                </div>
+            </div>
+
+            <div class="mb-3 text-center">
+                <label for="{{form.descripcion.id_for_label}}" class="form-label">
+                    {{form.descripcion.label_tag}}
+                </label>
+                <div>
+                    {{form.descripcion}}
+                </div>
+                <div class="text-danger">
+                    {{form.descripcion.errors}}
+                </div>
+            </div>
+
+            <div class="mb-3 text-center">
+                <label for="{{form.m2_construido.id_for_label}}" class="form-label">
+                    {{form.m2_construido.label_tag}}
+                </label>
+                <div>
+                    {{form.m2_construido}}
+                </div>
+                <div class="text-danger">
+                    {{form.m2_construido.errors}}
+                </div>
+            </div>
+
+            <div class="mb-3 text-center">
+                <label for="{{form.numero_banos.id_for_label}}" class="form-label">
+                    {{form.numero_banos.label_tag}}
+                </label>
+                <div>
+                    {{form.numero_banos}}
+                </div>
+                <div class="text-danger">
+                    {{form.numero_banos.errors}}
+                </div>
+            </div>
+
+            <div class="mb-3 text-center">
+                <label for="{{form.numero_hab.id_for_label}}" class="form-label">
+                    {{form.numero_hab.label_tag}}
+                </label>
+                <div>
+                    {{form.numero_hab}}
+                </div>
+                <div class="text-danger">
+                    {{form.numero_hab.errors}}
+                </div>
+            </div>
+
+            <div class="mb-3 text-center">
+                <label for="{{form.direccion.id_for_label}}" class="form-label">
+                    {{form.direccion.label_tag}}
+                </label>
+                <div>
+                    {{form.direccion}}
+                </div>
+                <div class="text-danger">
+                    {{form.direccion.errors}}
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <button id="boton-ingresa" type="submit">Registrar Inmueble</button>
+        </form>
+
+    </div>
+
+</div>
+
+
+{% endblock content %}
+    

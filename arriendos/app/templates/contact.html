@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="container" id="ingresar">
+    <h3 class="text-center contactanos my-3">Contactanos</h3>
+    <div class="col">
+      <form method="post">
+        {% csrf_token %} 
+        {{ form.as_p }}
+        <button type="submit" id="boton-ingresa"">Enviar mensaje</button>
+      
+
+      </form>
+      </div>
+    </div>
+        
+{% endif %}
+{% endblock content %}

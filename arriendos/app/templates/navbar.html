@@ -1,42 +1,53 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-lg" style="background-color: #2e5240;"">
+<nav id="navbar" class="navbar navbar-expand-lg">
   <div class="container">
-    <a class="navbar-brand" src href=""><img src="{% static 'logo2.png'%}" alt="logo" height="100px"></a>
+    <a class="navbar-brand" src href="{% url 'home' %}"><img src="{% static 'logo.png'%}" alt="logo" height="100px"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto" id="text-nav">
-        <li class="nav-item ">
-          <a class="nav-link text-light" href="{% url 'home' %}">Inicio</a>
-        </li>
-        {% if user.is_authenticated%}
         <li class="nav-item">
-          <a class="nav-link text-light" href="">Bienvenido</a>
-        </li>
-        {% endif %}
-        <li class="nav-item">
-          <a class="nav-link text-light" >Acerca</a>
+          <a class="nav-link text-dark" href="{% url 'home' %}">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" >Contacto</a>
+          <a class="nav-link text-dark" href="{% url 'acerca' %}">Acerca</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="{% url 'register' %}">Registrate</a>
-        </li>
-
-        {% if user.is_authenticated%}
-        <li class="nav-item">
-          <a type="button" class="btn btn-outline-success text-light" href="{% url 'logout' %}">Cerrar Sesión</a>
-        </li>
+    
+        {% if user.is_authenticated %}
+          {% if tipo == 'Arrendador'  %}
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="{% url 'get_inmuebles' %}">Propiedades</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="{% url 'register_inmueble' user.username %}">Registrar propiedad</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="{% url 'mensaje'%}">Mensajes</a>
+            </li>
+          {% endif %}
+    
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="{% url 'profile' %}">Mi Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="{% url 'logout' %}">Cerrar Sesión</a>
+          </li>
         {% else %}
-        <li class="nav-item">
-          <a type="button" class="btn btn-outline-success text-light" href="{% url 'login' %}">Iniciar Sesión</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="{% url 'login' %}">Iniciar Sesión</a>
+          </li>
+        {% endif %}
+    
+        {% if tipo == 'Arrendatario' %}
+          <li class="nav-item ">
+            <a class="nav-link text-dark" href="{% url 'disponibles' %}">Propiedades Disponibles</a>
+          </li>
         {% endif %}
       </ul>
     </div>
   </div>
 </nav>
+
 

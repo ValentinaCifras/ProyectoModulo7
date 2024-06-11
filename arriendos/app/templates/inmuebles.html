@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<div class="my-3 py-2">
+    <h1 class="text-center">Perfil: {{ user.username}}  Tipo: {{tipo}}</h1>
+</div>
+
+        {% if tipo == "Arrendador" %}
+            <div class="container">
+                <div class="row">
+                  {% for inmueble in inmuebles %}
+                    <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
+                      <div class="card">
+                        <img src="{{ inmueble.imagen }}" class="card-img-top" alt="">
+                          <div class="card-body">
+                            <h5 class="card-title">{{ inmueble.nombre_inmueble }}</h5>
+                            <ul>
+                              <li class="card-text text-start">Metros construidos:{{ inmueble.m2_construido }}</li>
+                              <li class="card-text text-start">Baños: {{ inmueble.numero_banos }}</li>
+                              <li class="card-text text-start">Habitaciones:{{ inmueble.numero_hab }}</li>
+                            </ul>
+                            <div class="text-end">
+                              <a id="boton-ingresa" href="{% url 'update_inmueble' inmueble.pk%}">Editar</a>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}    
+                </div>
+              </div>
+
+
+
+        {% else %}
+        {% endif%}
+    
+    {% else %}
+    
+            <h1>Debes Iniciar sesion para acceder al contenido</h1>
+            <a href="{% url 'login_url' %}"">Login</a>
+    {% endif %}
+{% endblock content %}
